@@ -10,3 +10,5 @@ and Semantic Versioning.
 - Initial bilingual Astro and Starlight foundation.
 - Chinese root locale, English `/en` locale, localized navigation, i18n parity,
   root-route, broken-link, dependency, secret, and SBOM checks.
+- Dependabot policy holds TypeScript on the Astro-compatible 6.x line until the
+  Astro checker supports TypeScript 7's compiler API.
