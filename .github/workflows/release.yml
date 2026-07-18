@@ -34,7 +34,10 @@ jobs:
         shell: bash
         run: |
           version=$(node -p "require('./package.json').version")
-          test "$GITHUB_REF_NAME" = "v$version"
+          tag_version=${GITHUB_REF_NAME#v}
+          tag_version=${tag_version%%-*}
+          tag_version=${tag_version%%+*}
+          test "$tag_version" = "$version"
           pnpm install --frozen-lockfile
       - name: Run release validation
         run: pnpm test
