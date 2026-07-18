@@ -5,6 +5,9 @@ and Semantic Versioning.
 
 ## [Unreleased]
 
+- Allow semver prerelease tags to carry the package's base version so hosted
+  draft release validation can run on release candidates.
+
 - Synchronized the bilingual project-status pages to the current `0.22.0`
   contract and Android's explicit `0.13.0`–`0.22.0` compatibility list. The
   pages now describe local-first Android startup accurately; the Site contract,
