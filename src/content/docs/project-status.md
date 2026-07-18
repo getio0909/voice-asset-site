@@ -1,15 +1,18 @@
 ---
 title: 项目状态
-description: VoiceAsset 的真实实现状态。
+description: VoiceAsset 的真实实现和验证状态。
 ---
 
-| 模块 | 状态 | 证据 |
-| --- | --- | --- |
-| 仓库基础 | Experimental | 正在建立最小构建与 CI。 |
-| Server API | Experimental | OpenAPI 0.1.0 已包含健康检查和能力协商。 |
-| Web 管理端 | Experimental | 初始化界面与 API 边界已可构建。 |
-| Android App | Experimental | 初始化界面已建立，尚无可发布 APK。 |
-| MCP 集成 | Experimental | stdio、HTTP 和契约边界正在验证。 |
+当前里程碑：**Phase 6：v1.0 缺口收敛**。本地共同 REST 契约为
+OpenAPI 0.22.0；尚未发布 `v1.0.0`。
 
-状态统一使用 **Stable**、**Beta**、**Experimental** 和 **Planned**；
-本站不会宣传未经验证的能力。
+| 模块        | 状态         | 当前证据与剩余门禁                                                                                                                                                                                                                                                                                             |
+| ----------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Server API  | Experimental | `0.22.0` 增加认证 WebSocket 实时转写升级、`voiceasset.realtime.v1` 子协议、文本事件帧和 Mock ASR 可恢复会话；API/Worker 已接入 SDK-backed S3 与可选 OTLP/HTTP tracing；真实 PostgreSQL、WebSocket transport 单测与隔离 10443 验收通过；当前部署 `.20260718.11`、schema 18。S3 远端性能/备份、Collector 与告警接收端仍是门禁。 |
+| Web Console | Experimental | 失败关闭固定为 `0.22.0`；Webhook 管理页支持创建、启停、编辑、轮换密钥、测试投递和历史查看。格式、Lint、类型检查、110 个单元测试、生产构建与许可证门禁通过；10443 已提供匹配静态包。 |
+| Android     | Experimental | 固定 `0.22.0`，继续显式兼容 `0.13.0`–`0.22.0` 同步子集；启动优先展示本地录音，不要求先登录或连接服务器。JVM/Ktlint、Debug/Release Lint、APK/AAB 与 43 个 instrumentation 方法编译通过；开发签名 APK 已生成，真机执行由用户验收。 |
+| MCP         | Experimental | 固定 `0.22.0`；实时转写不新增 MCP 工具、资源、Prompt、Scope、订阅或 Agent 权限。Go test/vet/build 通过；隔离环境已运行匹配的 `.20260718.11` MCP。 |
+| Site/运维   | Experimental | 25 个中英文页面与 91 操作 0.22 API 参考、51 页静态/链接/无障碍/许可证门禁及 8 个跨仓用例通过。10443 通过受限符号链接复用现有 Let’s Encrypt 证书；443/10443 呈现同一证书，公共 Caddy 未修改或重载。 |
+
+状态只使用 **Stable**、**Beta**、**Experimental**、**Planned**。本页区分已验证
+事实与剩余门禁，不把本地未运行的 Docker/Android 设备检查描述为通过。
