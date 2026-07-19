@@ -34,7 +34,8 @@ strictly validated, bounded asset-catalog bootstrap; a credential-redacted
 strict-TLS smoke verified the deployed `0.13.0`/10443 pagination. A separate local recording view reports upload/transcription
 progress and errors without requiring the 0.16 feed. Application
 compile, lint, Room schema, debug/test APK, unsigned release APK/AAB, and SBOM
-gates pass. Failed or blocked sync rows can resume from their last durable
+gates pass. Hosted Android CI `29667693126` also runs all 44 API 35 emulator
+instrumentation tests. Failed or blocked sync rows can resume from their last durable
 checkpoint with a fresh transcription retry generation; connected-device
 runtime gates remain open. Profiles now select upload and batch-transcription
 policies independently; WorkManager constrains each stage separately, and manual
@@ -70,9 +71,9 @@ required for the current fallback.
 
 - Local tests, static checks, and builds pass for Server, Console, MCP, and Site.
   Android passes 134 JVM tests, Ktlint, core/app lint, debug/test APKs, unsigned
-  release APK/AAB files, compilation of 43 instrumentation tests, and
-  141-component SBOM/checksum gates; device execution and final signing are not
-  claimed.
+  release APK/AAB files, and 141-component SBOM/checksum gates; hosted Android
+  CI `29667693126` executes all 44 API 35 emulator instrumentation tests.
+  Physical-device execution and final signing are not claimed.
 - The 0.11 waveform slice passes migrations 1–11, upgrades from every prior
   version, real PostgreSQL, byte-deterministic and performance-tested FFmpeg,
   authenticated reads, Console seek/speed behavior, and browser accessibility.
